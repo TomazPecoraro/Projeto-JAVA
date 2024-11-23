@@ -1,0 +1,29 @@
+meta {
+  name: Empresas POST
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/api/empresas
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IlBlZHJvIiwiZXhwIjoxNzMyMzEzMjEwfQ.PE5HTZHt9faWZU8uyUlOwBNmsHuQoQElbyKqNKEhF-c
+}
+
+body:json {
+  {
+    "nome": "Luiz Musk Enterprises",
+    "descricaoEmpresa": "Esta compania contém uma grande quantidade de placas solares sem estarem sendo utilizadas. Após grande investimento na compra da tecnologia, mas sem o cuidado de preparar uma locação para instalar tais equipamentos, a compania busca clientes dedicados a comprarem suas placas para que o prejuizo não venha a ser tão grnade, já que sua área de cobetura não tem muita incidência solar.",
+    "producaoEnergeticaKWH": 200,
+    "cnpj": "12345678000199",
+    "email": "contato@lmuskenterprises.com",
+    "telefone": "31987654321",
+    "regiaoCobertura": "ANTARCTICA",
+    "tipoPropriedade": "GALPAO"
+  }
+  
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Servicos UPDATE
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/api/servicos/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IlBlZHJvIiwiZXhwIjoxNzMyMzAxOTMzfQ.7fuZB8DI9qfL7RLI_yE1jCbKadYQejVff5Cjfr8LDSY
+}
+
+body:json {
+  {
+    "tituloServico": "Avançada",
+    "descricaoServico": "Serviço completo de manutenção e otimização de sistemas solares.",
+    "idCliente": 1,
+    "idEmpresa": 2,
+    "tipoServico": "SEGURANÇA"
+  }
+}

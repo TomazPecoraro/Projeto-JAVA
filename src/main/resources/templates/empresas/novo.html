@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Empresa</title>
+    <style>
+      /* Estilo Global */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+  
+      /* Cabeçalho */
+      h1 {
+        color: #ff9223;
+        text-align: center;
+        margin-top: 20px;
+      }
+  
+      /* Links */
+      a {
+        color: #ff9223;
+        text-decoration: none;
+      }
+  
+      a:hover {
+        text-decoration: underline;
+      }
+  
+      /* Botões */
+      button {
+        padding: 10px;
+        color: white;
+        background-color: #ff9223;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+  
+      button:hover {
+        background-color: #e67f1f;
+      }
+  
+      /* Formulário */
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+      label {
+        margin: 10px 0 5px;
+        font-size: 16px;
+      }
+  
+      input[type="text"],
+      input[type="tel"],
+      input[type="email"],
+      select {
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 16px;
+      }
+  
+      /* Estilo de Tabela */
+      table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+  
+      th {
+        background-color: #ff9223;
+        color: white;
+        font-weight: bold;
+      }
+  
+      tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+  
+      tbody tr:hover {
+        background-color: #f1f1f1;
+      }
+  
+      /* Estilo para mensagens de feedback */
+      .alert {
+        padding: 10px;
+        margin: 10px auto;
+        max-width: 500px;
+        border: 1px solid #ff9223;
+        border-radius: 4px;
+        background-color: #ffe5d1;
+        color: #d85f18;
+      }
+  
+      /* Responsividade */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 24px;
+        }
+        form {
+          max-width: 90%;
+          padding: 15px;
+        }
+      }
+  </style>
+  
+</head>
+<body>
+    <h1>Criar Nova Empresa</h1>
+
+    <form th:action="@{/empresas/novo}" th:object="${empresa}" method="post">
+        <div>
+            <label for="nome">Nome da Empresa:</label>
+            <input type="text" id="nome" th:field="*{nome}" required />
+        </div>
+
+        <div>
+          <label for="descricaoEmpresa">Descricao Empresa:</label>
+          <input type="text" id="descricaoEmpresa" th:field="*{descricaoEmpresa}" />
+          <br />
+        </div>
+        
+        <div>
+          <label for="producaoEnergeticaKWH">Producao Energética KWH:</label>
+          <input type="text" id="producaoEnergeticaKWH" th:field="*{producaoEnergeticaKWH}" />
+          <br />
+        </div>
+
+        <div>
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" th:field="*{cnpj}" required />
+        </div>
+
+        <div>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" th:field="*{email}" required />
+        </div>
+
+        <div>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" th:field="*{telefone}" required />
+        </div>
+
+        <div>
+            <label for="regiaoCobertura">Região de Cobertura:</label>
+            <select id="regiaoCobertura" th:field="*{regiaoCobertura}" required>
+                <option th:each="regiao : ${regioes}" 
+                        th:value="${regiao}" 
+                        th:text="${regiao.getDescricao()}">Selecione</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="tipoPropriedade">Tipo de Propriedade:</label>
+            <select id="tipoPropriedade" th:field="*{tipoPropriedade}" required>
+                <option th:each="tipo : ${tiposPropriedade}" 
+                        th:value="${tipo}" 
+                        th:text="${tipo.getDescricao()}">Selecione</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit">Criar Empresa</button>
+        </div>
+    </form>
+
+    <a href="/empresas">Voltar para a lista de empresas</a>
+</body>
+</html>

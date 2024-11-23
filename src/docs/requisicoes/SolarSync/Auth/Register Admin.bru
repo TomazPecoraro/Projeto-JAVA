@@ -1,0 +1,19 @@
+meta {
+  name: Register Admin
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/auth/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "login": "Pedro",
+    "senha": "123fiap",
+    "role": "ADMIN"
+  }
+}

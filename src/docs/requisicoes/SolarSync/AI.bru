@@ -1,0 +1,15 @@
+meta {
+  name: AI
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8080/springai/generate/2
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IlBlZHJvIiwiZXhwIjoxNzMyMzE2MzA2fQ.T_irm3fRdQjO4rREiEfN87wuYkgl_0_s0Sg8rLdP1gQ
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Clientes DELETE
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8080/api/clientes/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IlBlZHJvIiwiZXhwIjoxNzMyMjgxNDg1fQ.Hkapy-NtuGG74VW6dPrI5i-FL793zbrTZ_aIxEh2UQE
+}

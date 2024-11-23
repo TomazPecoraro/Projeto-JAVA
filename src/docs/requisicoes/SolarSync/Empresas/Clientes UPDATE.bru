@@ -1,0 +1,27 @@
+meta {
+  name: Clientes UPDATE
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/api/empresas/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IlBlZHJvIiwiZXhwIjoxNzMyMjgxNDg1fQ.Hkapy-NtuGG74VW6dPrI5i-FL793zbrTZ_aIxEh2UQE
+}
+
+body:json {
+  {
+    "nome": "SolarSync Ltda",
+    "cnpj": "12345678000199",
+    "email": "contato@solarsync.com",
+    "telefone": "31987654321",
+    "regiaoCobertura": "SOUTH_AMERICA",
+    "tipoPropriedade": "CASA"
+  }
+  
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Serviços</title>
+  <style>
+    /* Estilo Global */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* Cabeçalho */
+    h1 {
+      color: #ff9223;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Links */
+    a {
+      color: #ff9223;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Botões */
+    button {
+      padding: 10px;
+      color: white;
+      background-color: #ff9223;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #e67f1f;
+    }
+
+    /* Tabela */
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #ff9223;
+      color: white;
+      font-weight: bold;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="text-align: center; margin-top: 10px;">
+    <a href="/clientes">Clientes</a>
+    <a href="/empresas">Empresas</a>
+  </div>
+
+  <h1>Lista de Serviços</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Descrição</th>
+        <th>Tipo</th>
+        <th>ID Cliente</th>
+        <th>ID Empresa</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="servico : ${servicos}">
+        <td th:text="${servico.tituloServico}"></td>
+        <td th:text="${servico.descricaoServico}"></td>
+        <td th:text="${servico.tipoServico}"></td>
+        <td th:text="${servico.idCliente}"></td>
+        <td th:text="${servico.idEmpresa}"></td>
+        <td>
+          <a th:href="@{/servicos/visualizar/{id}(id=${servico.id})}">Visualizar</a> |
+          <a th:href="@{/servicos/editar/{id}(id=${servico.id})}">Editar</a> |
+          <a th:href="@{/servicos/deletar/{id}(id=${servico.id})}" onclick="return confirm('Tem certeza que deseja deletar este serviço?')">Deletar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/servicos/novo">Novo Serviço</a>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+meta {
+  name: Clientes POST
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/api/clientes
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IlBlZHJvIiwiZXhwIjoxNzMyMzE2MzA2fQ.T_irm3fRdQjO4rREiEfN87wuYkgl_0_s0Sg8rLdP1gQ
+}
+
+body:json {
+  {
+    "nome": "Michael Scofield",
+    "descricaoCliente": "Cliente é dono de uma produtora musical própria, utilizando sua própria residência para gravar, produzir, editar, mixar e lançar suas músicas. A maioria dos seus instrumentos necessita de energia eletrica, assim como todos os equipamentos de gravação. O mesmo por ser um artista independente, tem condições apenas de alugar instrumentos de energia renovável",
+    "consumoEnergeticoKWH": 1000,
+    "email": "michael.scofield@pbmusics.com",
+    "password": "12345678",
+    "regiaoCobertura": "EUROPA",
+    "tipoPropriedade": "LOFT"
+  }
+}

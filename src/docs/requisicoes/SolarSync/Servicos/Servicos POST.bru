@@ -1,0 +1,25 @@
+meta {
+  name: Servicos POST
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/api/servicos
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IlBlZHJvIiwiZXhwIjoxNzMyMzE2MzA2fQ.T_irm3fRdQjO4rREiEfN87wuYkgl_0_s0Sg8rLdP1gQ
+}
+
+body:json {
+  {
+    "tituloServico": "Aluguel Placas Solares para Produção Musical",
+    "descricaoServico": "Cliente esta interessado em alugar placas solares da empresa fornecedora para sustentar sua produção musical",
+    "idCliente": 2,
+    "idEmpresa": 2,
+    "tipoServico": "MUSICAL"
+  }
+}

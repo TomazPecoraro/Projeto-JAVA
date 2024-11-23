@@ -1,0 +1,25 @@
+meta {
+  name: Clientes UPDATE
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/api/clientes/2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IlBlZHJvIiwiZXhwIjoxNzMyMjgxNDg1fQ.Hkapy-NtuGG74VW6dPrI5i-FL793zbrTZ_aIxEh2UQE
+}
+
+body:json {
+  {
+    "nome": "João Silva",
+    "email": "joao.silva@example.com",
+    "password": "12345678",
+    "regiaoCobertura": "EUROPE",
+    "tipoPropriedade": "VILA"
+  }
+}

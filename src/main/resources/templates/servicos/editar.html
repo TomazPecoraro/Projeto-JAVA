@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Editar Cliente</title>
+  <style>
+    /* Estilo Global */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* Cabeçalho */
+    h1 {
+      color: #ff9223;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Links */
+    a {
+      color: #ff9223;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Botões */
+    button {
+      padding: 10px;
+      color: white;
+      background-color: #ff9223;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #e67f1f;
+    }
+
+    /* Formulário */
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      margin: 10px 0 5px;
+      font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      form {
+        max-width: 90%;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Editar Servico</h1>
+  <form th:action="@{/servicos/editar/{id}(id=${servico.id})}" th:object="${servico}" method="post">
+    <label for="tituloServico">Titulo:</label>
+    <input type="text" id="tituloServico" th:field="*{tituloServico}" />
+    <br />
+    <label for="descricaoServico">Descrição:</label>
+    <input type="text" id="descricaoServico" th:field="*{descricaoServico}" />
+    <br />
+    <label for="tipoServico">Tipo de Serviço:</label>
+    <select id="tipoServico" th:field="*{tipoServico}" required>
+      <option th:each="tipo : ${tiposServico}" 
+        th:value="${tipo}" 
+        th:text="${tipo}">Selecione</option>
+    </select>
+    <br />
+    
+    <label for="idCliente">ID Cliente:</label>
+    <input type="text" id="idCliente" th:field="*{idCliente}" />
+    <br />
+    
+    <label for="idEmpresa">ID Empresa:</label>
+    <input type="text" id="idEmpresa" th:field="*{idEmpresa}" />
+    <br />
+    
+    
+    <button type="submit">Salvar</button>
+  </form>
+  <a th:href="@{/clientes}">Voltar</a>
+</body>
+
+</html>
